@@ -7,7 +7,7 @@ public class Counter extends Thread {
     int value = 0;
     //блокировка
     Lock lock = new ReentrantLock();
-//    Condition condition = lock.newCondition();
+    Condition condition = lock.newCondition();
 
 
     @Override
@@ -16,6 +16,7 @@ public class Counter extends Thread {
         // пока значение меньше  10000 бежим по циклу
         while (value < 10000) {
             //блокируем
+
             lock.lock();
             // тут проверяем, что значение все еще меньше 10000
             if (value < 10000) {
