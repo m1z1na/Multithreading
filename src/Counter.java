@@ -1,3 +1,4 @@
+import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -6,13 +7,14 @@ public class Counter extends Thread {
     int value = 0;
     //блокировка
     Lock lock = new ReentrantLock();
+//    Condition condition = lock.newCondition();
 
 
     @Override
     public void run() {
 
         // пока значение меньше  10000 бежим по циклу
-        for (int i = 0; value < 10000; i++) {
+        while (value < 10000) {
             //блокируем
             lock.lock();
             // тут проверяем, что значение все еще меньше 10000
@@ -25,6 +27,7 @@ public class Counter extends Thread {
                 value = tempValue;
             }
             //разблокируем
+
             lock.unlock();
         }
 

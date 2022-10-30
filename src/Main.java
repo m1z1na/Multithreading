@@ -16,7 +16,7 @@ public class Main {
         //запускаем второй поток
         t2.start();
         //остановили для считывания переменной
-        Thread.sleep( 1000 );
+        Thread.sleep( 10 );
         //получить переменную экземпляра
         System.out.println( counter.getValue() );
     }
