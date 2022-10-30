@@ -27,8 +27,8 @@ public class Main {
         ExecutorService executorService = Executors.newFixedThreadPool(2);
         executorService.execute(counter);
         executorService.execute(counter);
-                Thread.sleep( 10000 );
+        Thread.sleep(10000);
 //        //получить переменную экземпляра
-        System.out.println( counter.getValue() );
+        System.out.println(counter.getValue());
     }
 }
